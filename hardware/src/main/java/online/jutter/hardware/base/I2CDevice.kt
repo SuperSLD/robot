@@ -47,7 +47,7 @@ abstract class I2CDevice(
      *
      * @param data
      */
-    protected fun write(data: Byte) {
+    fun write(data: Byte) {
         i2c!!.write(data)
     }
 

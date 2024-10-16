@@ -4,4 +4,4 @@ plugins {
 rootProject.name = "robot"
 
 include(":hardware")
-include(":robot")
+include(":robot-q")

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="RemoteTargetsManager">
     <targets>
-      <target name="leon@192.168.0.100:22" type="ssh/sftp" uuid="68099bd6-50b0-469f-99bf-da00c07b4779">
+      <target name="rasberry pi" type="ssh/sftp" uuid="68099bd6-50b0-469f-99bf-da00c07b4779">
         <config>
           <option name="projectRootOnTarget" value="/home/leon/robot" />
           <option name="serverName" value="leon@192.168.0.100:22 password" />

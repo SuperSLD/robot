@@ -9,4 +9,5 @@ interface Hardware {
 
 enum class RobotComponent {
     LCD_DISPLAY,
+    SERVO_CONTROLLER,
 }

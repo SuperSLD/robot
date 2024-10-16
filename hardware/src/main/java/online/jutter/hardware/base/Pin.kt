@@ -3,6 +3,8 @@ package online.jutter.hardware.base
 enum class PIN(val pin: Int) {
     SDA1(3),
     SCL1(5),
+
+    D8(8),
 //    TXD(14),
 //    RXD(15),
 //    D4(4),
@@ -23,9 +25,9 @@ enum class PIN(val pin: Int) {
 //    MISO(9),
 //    CEO(8),
 //    CE1(7),
-//    PWM12(12),
-//    PWM13(13),
-//    PWM18(18),
-//    PWM19(19)
 
+    PWM12(12),
+    PWM13(13),
+    PWM18(18),
+    PWM19(19)
 }

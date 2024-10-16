@@ -6,14 +6,16 @@ object ServiceController {
 
     val services = hashMapOf<Class<*>, Service>()
 
-    fun startService(service: Service) {
-        val serviceName = service::class.java
-        log("start service $serviceName")
-        if (!services.containsKey(serviceName)) {
-            services[serviceName] = service
+    @Synchronized
+    fun startService(service: Service, params: HashMap<String, Any> = hashMapOf()) {
+        val clazz = service::class.java
+        log("start service ${clazz.simpleName}")
+        if (!services.containsKey(clazz)) {
+            services[clazz] = service
+            log("service ${clazz.simpleName}: register new instance")
         }
-        if (!services[serviceName]!!.isRunning()) {
-            services[serviceName]!!.start()
+        if (!services[clazz]!!.isRunning()) {
+            services[clazz]!!.start(params)
         }
     }
 
@@ -24,6 +26,7 @@ object ServiceController {
     fun stopService(clazz: Class<*>) {
         if (services.containsKey(clazz) && services[clazz]!!.isRunning()) {
             services[clazz]!!.stop()
+            log("stop service ${clazz.simpleName}")
         }
     }
 }
