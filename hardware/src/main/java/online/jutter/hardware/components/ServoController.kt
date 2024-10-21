@@ -2,26 +2,33 @@ package online.jutter.hardware.components
 
 import com.pi4j.context.Context
 import com.pi4j.io.i2c.I2C
-import com.pi4j.io.i2c.I2CBus
 import online.jutter.hardware.base.I2CDevice
-import java.time.Duration
-import kotlin.experimental.and
-import kotlin.experimental.inv
-import kotlin.experimental.or
-import kotlin.math.log
 
 
 class ServoController(
-    val pi4j: Context,
-    val device: Int = DEFAULT_DEVICE,
+    pi4j: Context,
+    device: Int = DEFAULT_DEVICE,
 ): I2CDevice(pi4j, device, "LcdDisplay") {
+
+    /*
+
+    A0 -> 0
+    A1 -> 1
+    A2 -> 2
+    A3 -> 3
+    A4 -> 4
+    A5 -> 5
+    D6 -> 6
+    D5 -> 7
+
+     */
 
     companion object {
         private const val DEFAULT_DEVICE = 0x8
     }
 
     override fun init(i2c: I2C?) {
-
+        /* pass */
     }
 
     fun setServoAngle(servoName: ServoName, angle: Int) {

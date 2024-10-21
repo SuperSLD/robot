@@ -3,12 +3,26 @@
 
 #define I2C_ADDRESS 0x8
 
-Servo servo[] = { Servo() };
-int angleState[] = { 90 };
+Servo servo0;
+Servo servo1;
+Servo servo2;
+Servo servo3;
+Servo servo4;
+Servo servo5;
+Servo servo6;
+Servo servo7;
+int angleState[] = { 90, 90, 90, 90, 90, 90, 90, 90 };
 
 void setup() {
   // Init servo
-  servo[0].attach(A0);
+  servo0.attach(7);
+  servo1.attach(6);
+  servo2.attach(5);
+  servo3.attach(4);
+  servo4.attach(3);
+  servo5.attach(2);
+  servo6.attach(8);
+  servo7.attach(9);
   
   // Init I2C
   Wire.begin(I2C_ADDRESS);
@@ -46,7 +60,32 @@ void moveServo() {
 
 void loop() {
   for(int i = 0; i < sizeof(angleState); i++) {
-    servo[i].write(angleState[i]);
+    switch(i) {
+      case 0:
+        servo0.write(angleState[i]);
+        break;
+      case 1:
+        servo1.write(angleState[i]);
+        break;
+      case 2:
+        servo2.write(angleState[i]);
+        break;
+      case 3:
+        servo3.write(angleState[i]);
+        break;
+      case 4:
+        servo4.write(angleState[i]);
+        break;
+      case 5:
+        servo5.write(angleState[i]);
+        break;
+      case 6:
+        servo6.write(angleState[i]);
+        break;
+      case 7:
+        servo7.write(angleState[i]);
+        break;
+    }
   }
-  delay(15);
+  delay(20);
 }
